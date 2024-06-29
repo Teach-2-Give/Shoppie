@@ -1,0 +1,77 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: white;
+  color: #333;
+}
+
+.navbar-brand {
+  font-size: 1em;
+  font-weight: bold;width: 60px;
+  text-wrap: wrap;
+  text-align: center;
+  background-color: #C80036;
+  color: #FFF5E1;
+}
+
+.navbar-menu {
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-item {
+  background: white;
+  border: none;
+  color: #333;
+  margin: 0 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-size: 0.8em;
+  border-radius: 3px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.navbar-item i {
+  margin-right: 5px;
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+}
+
+.search-container {
+  position: relative;
+}
+
+.search-container input[type="text"] {
+  padding: 5px 10px;
+  margin-right: 10px;
+  border: none;
+  border-radius: 3px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.search-icon {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #333;
+}
+
+.fas {
+  font-size: 1.2em;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.navbar-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
