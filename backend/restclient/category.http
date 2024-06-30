@@ -1,0 +1,10 @@
+### Create a new category
+POST http://localhost:3000/categories
+Content-Type: application/json
+
+{
+    "name": "Test Category"
+}
+
+### Get all categories
+GET http://localhost:3000/categories

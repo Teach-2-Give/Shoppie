@@ -3,7 +3,7 @@ import dotenv from "dotenv";
 
 /**
  * Load environment variables from .env file
- * where API keys and passwords are configured.
+ * 
  * Set the configuration for the database connection
  */
 dotenv.config();

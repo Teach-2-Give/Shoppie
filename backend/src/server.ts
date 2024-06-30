@@ -1,5 +1,12 @@
-import express, { Request, Response } from "express";
-import prisma from "./config/database";
+import express from "express";
+import dotenv from "dotenv";
+import userRoutes from "./routes/user.routes";
+import productRoutes from "./routes/product.routes";
+import cartRoutes from "./routes/cart.routes";
+import orderRoutes from "./routes/order.routes";
+import categoryRoutes from "./routes/category.routes";
+
+dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -9,7 +16,17 @@ const PORT = process.env.PORT || 3000;
  */
 app.use(express.json());
 
-app.get("/", (req: Request, res: Response) => {
+/**
+ * Routes
+ */
+app.use("/users", userRoutes);
+app.use("/products", productRoutes);
+app.use("/cart", cartRoutes);
+app.use("/orders", orderRoutes);
+app.use("/categories", categoryRoutes);
+
+
+app.get("/", (req, res) => {
   res.send("Shoppie API is running");
 });
 
