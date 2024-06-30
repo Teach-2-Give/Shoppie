@@ -7,3 +7,7 @@ declare global {
     }
   }
 }
+
+/**
+ * Request interface
+ */

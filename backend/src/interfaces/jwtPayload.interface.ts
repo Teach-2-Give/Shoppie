@@ -3,3 +3,11 @@ export interface JwtPayload {
     email: string;
     role: string;
 }  
+
+/**
+ * JwtPayload interface
+ * @param id
+ * @param email
+ * @param role
+ * @returns
+ */

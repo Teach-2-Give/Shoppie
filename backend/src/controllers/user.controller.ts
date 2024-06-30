@@ -6,6 +6,13 @@ import {
 } from "../services/user.service";
 import { Role } from "../interfaces/role.enum";
 
+
+/**
+ * Controller to register a new user
+ * @param req 
+ * @param res 
+ * @returns 
+ */
 const register = async (req: Request, res: Response) => {
   const { email, password, name, role } = req.body;
   try {
@@ -17,6 +24,13 @@ const register = async (req: Request, res: Response) => {
   }
 };
 
+
+/**
+ * Controller to login a user
+ * @param req 
+ * @param res 
+ * @returns 
+ */
 const login = async (req: Request, res: Response) => {
   const { email, password } = req.body;
   try {
@@ -31,6 +45,12 @@ const login = async (req: Request, res: Response) => {
   }
 };
 
+
+/**
+ * resetUserPassword
+ * @param req 
+ * @param res 
+ */
 const resetUserPassword = async (req: Request, res: Response) => {
   const { email, newPassword } = req.body;
   try {

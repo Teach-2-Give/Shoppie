@@ -3,6 +3,15 @@ import { Role } from "../interfaces/role.enum";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 
+
+/**
+ * Function to register a new user
+ * @param email 
+ * @param password 
+ * @param name 
+ * @param role 
+ * @returns 
+ */
 const registerUser = async (email: string, password: string, name: string, role: Role = Role.USER) => {
   const hashedPassword = await bcrypt.hash(password, 10);
   try {
@@ -23,6 +32,13 @@ const registerUser = async (email: string, password: string, name: string, role:
   }
 };
 
+
+/**
+ * Function to login a user
+ * @param email 
+ * @param password 
+ * @returns 
+ */
 const loginUser = async (email: string, password: string) => {
   const user = await prisma.user.findUnique({ where: { email } });
   if (user && await bcrypt.compare(password, user.password)) {
@@ -36,6 +52,13 @@ const loginUser = async (email: string, password: string) => {
   return null;
 };
 
+
+/**
+ * Function to reset a user's password
+ * @param email 
+ * @param newPassword 
+ * @returns 
+ */
 const resetPassword = async (email: string, newPassword: string) => {
   const hashedPassword = await bcrypt.hash(newPassword, 10);
   const updatedUser = await prisma.user.update({

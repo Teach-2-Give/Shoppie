@@ -7,3 +7,7 @@ export interface CartItem {
   quantity: number;
   product: Product;
 }
+
+/**
+ * CartItem interface
+ */

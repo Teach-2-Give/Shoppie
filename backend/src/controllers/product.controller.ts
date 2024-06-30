@@ -47,6 +47,11 @@ const createProduct = async (req: Request, res: Response) => {
 // };
 
 
+/**
+ * getProducts
+ * @param req 
+ * @param res 
+ */
 const getProducts = async (req: Request, res: Response) => {
   try {
     const products = await getAllProducts();
@@ -56,6 +61,12 @@ const getProducts = async (req: Request, res: Response) => {
   }
 };
 
+
+/**
+ * getProduct
+ * @param req 
+ * @param res 
+ */
 const getProduct = async (req: Request, res: Response) => {
   const { id } = req.params;
   try {
@@ -70,6 +81,11 @@ const getProduct = async (req: Request, res: Response) => {
   }
 };
 
+/**
+ * updateExistingProduct
+ * @param req 
+ * @param res 
+ */
 const updateExistingProduct = async (req: Request, res: Response) => {
   const { id } = req.params;
   const data = req.body;
@@ -81,6 +97,11 @@ const updateExistingProduct = async (req: Request, res: Response) => {
   }
 };
 
+/**
+ * deleteExistingProduct
+ * @param req 
+ * @param res 
+ */
 const deleteExistingProduct = async (req: Request, res: Response) => {
   const { id } = req.params;
   try {

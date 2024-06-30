@@ -8,4 +8,8 @@ export interface Order {
   createdAt: Date;
 }
 
-export { OrderItem };  // Explicitly export OrderItem
+export { OrderItem }; 
+
+/**
+ * Explicitly export OrderItem
+ */

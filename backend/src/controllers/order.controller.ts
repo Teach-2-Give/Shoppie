@@ -7,6 +7,13 @@ import {
 } from "../services/order.service";
 import { Role } from "../interfaces/role.enum";
 
+
+/**
+ * Controller to create a new order
+ * @param req 
+ * @param res 
+ * @returns 
+ */
 const createNewOrder = async (req: Request, res: Response) => {
   const userId = req.user?.id; // Extract the userId from the authenticated user
 

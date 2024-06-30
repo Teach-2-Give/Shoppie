@@ -81,14 +81,30 @@ const addProduct = async (name: string, description: string, price: number, imag
 //   }
 // };
 
+
+/**
+ * Function to get all products
+ * @returns 
+ */
 const getAllProducts = async () => {
   return await prisma.product.findMany();
 };
 
+/**
+ * Function to get a product by ID
+ * @param id 
+ * @returns 
+ */
 const getProductById = async (id: number) => {
   return await prisma.product.findUnique({ where: { id } });
 };
 
+/**
+ * Function to update a product
+ * @param id 
+ * @param data 
+ * @returns 
+ */
 const updateProduct = async (id: number, data: Prisma.ProductUpdateInput) => {
   return await prisma.product.update({
     where: { id },
@@ -96,6 +112,11 @@ const updateProduct = async (id: number, data: Prisma.ProductUpdateInput) => {
   });
 };
 
+
+/**
+ * Function to delete a product
+ * @param id 
+ */
 const deleteProduct = async (id: number) => {
   /**
    * Check if the product exists

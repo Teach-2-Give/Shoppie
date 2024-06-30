@@ -14,7 +14,6 @@ import { Role } from "../interfaces/role.enum";
 
 const router = Router();
 
-// router.post("/", authenticate, authorize([Role.ADMIN]), createProduct);
 // router.post("/", authenticate, authorize([Role.ADMIN]), upload.single('image'), createProduct); /**Add Multer middleware to the route */
 
 router.post("/", authenticate, authorize([Role.ADMIN]), createProduct);

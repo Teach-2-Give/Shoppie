@@ -1,6 +1,12 @@
 import prisma from "../config/database";
 import { Order } from "../interfaces/order.interface";
 
+
+/**
+ * Function to create a new order
+ * @param userId 
+ * @returns 
+ */
 const createOrder = async (userId: number): Promise<Order> => {
   const cart = await prisma.cart.findUnique({
     where: { userId },

@@ -2,6 +2,12 @@ import { Request, Response, NextFunction } from "express";
 import jwt from "jsonwebtoken";
 import { JwtPayload } from "../interfaces/jwtPayload.interface";
 
+/**
+ * Authenticate middleware
+ * @param req 
+ * @param res 
+ * @param next 
+ */
 const authenticate = (req: Request, res: Response, next: NextFunction) => {
   const token = req.headers.authorization?.split(" ")[1];
 

@@ -5,3 +5,7 @@ export interface Cart {
   userId: number;
   items: CartItem[];
 }
+
+/**
+ * CartItem interface
+ */
