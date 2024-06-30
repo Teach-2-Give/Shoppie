@@ -43,10 +43,17 @@ const updateCategory = async (id: number, name: string) => {
  * @returns 
  */
 const deleteCategory = async (id: number) => {
-  const category = await prisma.category.delete({
-    where: { id }
-  });
-  return category;
+  try {
+    const category = await prisma.category.delete({
+      where: { id }
+    });
+    return category;
+  } catch (error: any) {
+    if (error.code === 'P2025') {
+      throw new Error("Category not found");
+    }
+    throw error;
+  }
 };
 
 export { addCategory, getAllCategories, deleteCategory, updateCategory };

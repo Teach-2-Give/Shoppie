@@ -63,7 +63,11 @@ const removeCategory = async (req: Request, res: Response) => {
     const category = await deleteCategory(parseInt(id, 10));
     res.status(200).json(category);
   } catch (error: any) {
-    res.status(400).json({ error: error.message });
+    if (error.message === "Category not found") {
+      res.status(404).json({ error: error.message });
+    } else {
+      res.status(400).json({ error: error.message });
+    }
   }
 };
 
