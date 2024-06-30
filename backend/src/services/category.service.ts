@@ -22,4 +22,31 @@ const getAllCategories = async () => {
   return categories;
 };
 
-export { addCategory, getAllCategories };
+/**
+ * updateCategory
+ * @param id 
+ * @param name 
+ * @returns 
+ */
+const updateCategory = async (id: number, name: string) => {
+  const category = await prisma.category.update({
+    where: { id },
+    data: { name },
+  });
+  return category;
+};
+
+
+/**
+ * deleteCategory
+ * @param id 
+ * @returns 
+ */
+const deleteCategory = async (id: number) => {
+  const category = await prisma.category.delete({
+    where: { id }
+  });
+  return category;
+};
+
+export { addCategory, getAllCategories, deleteCategory, updateCategory };

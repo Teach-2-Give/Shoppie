@@ -7,7 +7,9 @@
     "start": "ts-node-dev --respawn --transpile-only src/server.ts",
     "dev": "ts-node-dev --respawn --transpile-only src/server.ts",
     "build": "tsc",
-    "db": "prisma studio"
+    "db": "prisma studio",
+    "migrate:dev": "prisma migrate dev",
+    "generate": "prisma generate"
   },
   "keywords": [],
   "author": "",
