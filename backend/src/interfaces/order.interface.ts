@@ -7,3 +7,5 @@ export interface Order {
   total: number;
   createdAt: Date;
 }
+
+export { OrderItem };  // Explicitly export OrderItem
