@@ -50,6 +50,7 @@
             <div class="modal" *ngIf="formVisible">
               <div class="modal-content">
                 <span class="close" (click)="toggleForm()">&times;</span>
+                <div class="form">
                 <form [formGroup]="productForm" (ngSubmit)="addOrUpdateProduct()">
                   <div class="form-group">
                     <label for="name">Name</label>
@@ -119,6 +120,7 @@
                     <button type="button" class="cancel-button" (click)="resetForm()">Cancel</button>
                   </div>
                 </form>
+              </div>
               </div>
             </div>
   

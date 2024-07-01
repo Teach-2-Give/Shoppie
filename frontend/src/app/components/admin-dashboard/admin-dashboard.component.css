@@ -8,10 +8,6 @@
     z-index: 18;
   } */
   
-  mat-form-field {
-    width: 100%;
-    margin-bottom: 20px;
-  }
   
   .product-table {
     width: 100%;
@@ -133,6 +129,12 @@
   }
   
   /* search box styling ---------------------------------------------------------- */
+
+  mat-form-field {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
   .mat-form-field-appearance-outline .mat-form-field-outline {
     color: #bdbdbd; /* Outline color */
   }
@@ -199,6 +201,9 @@
   
   
   /* form styling--------------------------------------------------------- */
+  .form{
+    background-color: #fff;
+  }
   /* Form Container */
   /* Modal Background */
   .modal {
