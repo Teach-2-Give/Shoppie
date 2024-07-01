@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {
+  ReactiveFormsModule,
+  FormBuilder,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
@@ -27,7 +32,7 @@ import { Router, RouterLink } from '@angular/router';
     MatButtonModule,
     MatListModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
   ],
 })
 export class AdminDashboardComponent implements OnInit {
@@ -43,9 +48,15 @@ export class AdminDashboardComponent implements OnInit {
       name: ['', [Validators.required, Validators.minLength(3)]],
       description: ['', [Validators.required, Validators.minLength(10)]],
       price: ['', [Validators.required, Validators.min(0)]],
-      image: ['', [Validators.required, Validators.pattern(/https?:\/\/.+\.(jpg|jpeg|png|webp|avif|gif|svg)/)]],
+      image: [
+        '',
+        [
+          Validators.required,
+          Validators.pattern(/https?:\/\/.+\.(jpg|jpeg|png|webp|avif|gif|svg)/),
+        ],
+      ],
       stock: ['', [Validators.required, Validators.min(0)]],
-      category: ['', [Validators.required]]
+      category: ['', [Validators.required]],
     });
   }
 
@@ -54,7 +65,7 @@ export class AdminDashboardComponent implements OnInit {
   }
 
   loadProducts(): void {
-    this.productService.getProducts().subscribe(products => {
+    this.productService.getProducts().subscribe((products) => {
       this.products = products;
       this.filteredProducts = products;
     });
@@ -89,7 +100,7 @@ export class AdminDashboardComponent implements OnInit {
       price: product.price,
       image: product.image,
       stock: product.stock,
-      category: product.category
+      category: product.category,
     });
     this.isEditing = true;
     this.formVisible = true;
@@ -109,7 +120,7 @@ export class AdminDashboardComponent implements OnInit {
 
   onSearch(event: Event): void {
     const searchTerm = (event.target as HTMLInputElement).value.toLowerCase();
-    this.filteredProducts = this.products.filter(product =>
+    this.filteredProducts = this.products.filter((product) =>
       product.name.toLowerCase().includes(searchTerm)
     );
   }
@@ -117,8 +128,8 @@ export class AdminDashboardComponent implements OnInit {
   onFilter(event: Event): void {
     const filterValue = (event.target as HTMLSelectElement).value;
     if (filterValue) {
-      this.filteredProducts = this.products.filter(product =>
-        product.category === filterValue
+      this.filteredProducts = this.products.filter(
+        (product) => product.category === filterValue
       );
     } else {
       this.filteredProducts = this.products;
