@@ -10,6 +10,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { ProductService } from '../../services/product.service';
 import { Product } from '../../interfaces/product';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-admin-dashboard',
@@ -18,6 +19,7 @@ import { Product } from '../../interfaces/product';
   standalone: true,
   imports: [
     CommonModule,
+    RouterLink,
     ReactiveFormsModule,
     MatSidenavModule,
     MatToolbarModule,
