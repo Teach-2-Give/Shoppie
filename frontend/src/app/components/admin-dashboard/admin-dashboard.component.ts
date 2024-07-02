@@ -103,7 +103,7 @@ export class AdminDashboardComponent implements OnInit {
       price: product.price,
       image: product.image,
       stock: product.stock,
-      category: product.category,
+      category: product.categoryId,
     });
     this.isEditing = true;
     this.formVisible = true;
