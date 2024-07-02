@@ -6,6 +6,10 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
+
+import { ProductService } from '../../services/product.service';
+import { Product } from '../../interfaces/product';
+import { Router, RouterLink } from '@angular/router';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
@@ -13,9 +17,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatListModule } from '@angular/material/list';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { ProductService } from '../../services/product.service';
-import { Product } from '../../interfaces/product';
-import { Router, RouterLink } from '@angular/router';
+
 
 @Component({
   selector: 'app-admin-dashboard',
@@ -23,6 +25,7 @@ import { Router, RouterLink } from '@angular/router';
   styleUrls: ['./admin-dashboard.component.css'],
   standalone: true,
   imports: [
+    Component,
     CommonModule,
     RouterLink,
     ReactiveFormsModule,
@@ -65,7 +68,7 @@ export class AdminDashboardComponent implements OnInit {
   }
 
   loadProducts(): void {
-    this.productService.getProducts().subscribe((products) => {
+    this.productService.getProducts().subscribe((products: Product[]) => {
       this.products = products;
       this.filteredProducts = products;
     });
