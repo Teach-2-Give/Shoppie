@@ -25,7 +25,7 @@ import { MatInputModule } from '@angular/material/input';
   styleUrls: ['./admin-dashboard.component.css'],
   standalone: true,
   imports: [
-    Component,
+    
     CommonModule,
     RouterLink,
     ReactiveFormsModule,
