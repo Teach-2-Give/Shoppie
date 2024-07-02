@@ -2,38 +2,48 @@
     <mat-sidenav #drawer class="sidenav" mode="side" opened>
       <mat-toolbar>Shopie Admin</mat-toolbar>
   
-      <mat-nav-list>
+      <mat-nav-list>   
         <a mat-list-item routerLink="/admin-dashboard" class="nav-item">
-          <mat-icon class="nav-icon">dashboard</mat-icon>
-          <span class="nav-text">Product-management</span>        
+          <mat-icon class="nav-icon"style="font-size:15px;color:grey;">dashboard</mat-icon>
+          <span class="nav-text" style="font-size:15px;color:grey;">Product-management</span>        
         </a>
-        <a mat-list-item routerLink="/manage-users" class="nav-item">
-          <mat-icon class="nav-icon">exit_to_app</mat-icon>
-          <span class="nav-text">log-out</span>        
+        <a mat-list-item routerLink="/manage-orders" class="nav-item">
+          <mat-icon class="nav-icon"style="font-size:15px;color:grey;">exit_to_app</mat-icon>
+          <span class="nav-text" style="font-size:15px;color:grey;">Orders</span>        
+        </a>
+        <a mat-list-item routerLink="/manage-reviews" class="nav-item">
+          <mat-icon class="nav-icon"style="font-size:15px;color:grey;">exit_to_app</mat-icon>
+          <span class="nav-text" style="font-size:15px;color:grey;">Reviews</span>        
+        </a>
+        <a mat-list-item routerLink="/" class="nav-item">
+          <mat-icon class="nav-icon"style="font-size:15px;color:grey;">exit_to_app</mat-icon>
+          <span class="nav-text" style="font-size:15px;color:grey;">log-out</span>        
         </a>
       </mat-nav-list>
+
     </mat-sidenav>
     <mat-sidenav-content>
-      <mat-toolbar>
-        <button mat-icon-button (click)="drawer.toggle()">
-          <mat-icon>menu</mat-icon>
-        </button>
-        <span></span>
-      </mat-toolbar>
-  
+      
       <div class="sidenav-container">
         <div class="sidenav-content">
           <div class="toolbar">
-            <button class="addbtn" (click)="toggleForm()">
-              <mat-icon>add</mat-icon>
-            </button>
-  
-            <div class="search">
-              <mat-form-field appearance="outline">
-                <mat-icon matPrefix>search</mat-icon>
-                <input matInput type="text" placeholder="Search products" (input)="onSearch($event)">
-              </mat-form-field>
-            </div>
+                   
+      <button class="fabar" (click)="drawer.toggle()" style="background:#fff; border:none;margin:20px;">
+        <i class="fa-solid fa-bars" style="font-size:25px;color:#898989;" ></i>
+      </button>
+      <span></span>
+
+          <div class="add"> 
+          <button class="addbtn" (click)="toggleForm()">
+            <i class="fa-duotone fa-plus" style="font-size:25px;color:#898989;"></i>
+          </button><p>Add product</p>
+          
+        </div>
+
+           <div class="search"> 
+            <input type="text" placeholder="Search Tours" (input)="onSearch($event)">
+          </div>
+          
             
             <div class="filters">
               <select (change)="onFilter($event)">    
@@ -144,19 +154,18 @@
                   <td>{{ product.description }}</td>
                   <td>{{ product.category }}</td>
                   <td>
-                    <button mat-icon-button (click)="editProduct(product)">
-                      <mat-icon>edit</mat-icon>
+                    <button class="edit-btn" (click)="editProduct(product)"> 
+                      <i class="fa-regular fa-pen-to-square" style="color: #10da3c;font-size:15px;"></i>
                     </button>
                   </td>
                   <td>
-                    <button mat-icon-button (click)="deleteProduct(product.id)">
-                      <mat-icon>delete</mat-icon>
+                    <button class="del-btn" (click)="deleteProduct(product.id)">  
+                      <i class="fa-regular fa-trash-can" style="color: #f01111;font-size:15px;"></i>
                     </button>
                   </td>
                 </tr>
               </tbody>
             </table>
-  
             <div class="pagination">
               <span>Showing data 1 to 8 of 256K entries</span>
               <ul class="pagination-list">
@@ -170,7 +179,7 @@
               </ul>
             </div> 
   
-            <div class="summary-cards">
+            <div class="summary-cards">   
               <div class="card">
                 <h3>Total Products</h3>
                 <p>5,423</p>
