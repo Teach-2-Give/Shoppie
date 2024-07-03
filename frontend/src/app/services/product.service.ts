@@ -12,7 +12,7 @@ export class ProductService {
   constructor(private http: HttpClient) {}
 
   private getHeaders(): HttpHeaders {
-    const token = 'your-auth-token-here'; // Replace with dynamic token retrieval if necessary
+    const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJhZG1pbnVzZXIxQGV4YW1wbGUuY29tIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzIwMDA0MTUzLCJleHAiOjE3MjAwMDc3NTN9.oUXwDGoBpRXsvDk1RP0SEJiOBorjLs502tTS9dzoQwQ'; // Replace with dynamic token retrieval if necessary
     return new HttpHeaders({
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${token}`
@@ -39,3 +39,9 @@ export class ProductService {
     return this.http.delete<void>(`${this.apiUrl}/${id}`, { headers });
   }
 }
+
+
+
+
+
+

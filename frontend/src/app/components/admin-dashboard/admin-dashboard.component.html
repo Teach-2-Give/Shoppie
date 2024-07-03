@@ -28,15 +28,15 @@
         <div class="sidenav-content">
           <div class="toolbar">
                    
-      <button class="fabar" (click)="drawer.toggle()" style="background:#fff; border:none;margin:20px;">
-        <i class="fa-solid fa-bars" style="font-size:25px;color:#898989;" ></i>
+      <button class="fabar" (click)="drawer.toggle()" style="background:#fff; border:none;margin:30px;">
+        <i class="fa-solid fa-bars" style="font-size:17px;color:#898989;" ></i>
       </button>
       <span></span>
 
           <div class="add"> 
           <button class="addbtn" (click)="toggleForm()">
-            <i class="fa-duotone fa-plus" style="font-size:25px;color:#898989;"></i>
-          </button><p>Add product</p>
+            <i class="fa-duotone fa-plus" style="font-size:25px;color:#898989;"></i>                        
+          </button><p style="font-size:13.7px;">Add product</p>
           
         </div>
 
@@ -65,48 +65,48 @@
                   <div class="form-group">
                     <label for="name">Name</label>
                     <input type="text" id="name" formControlName="name" required />
-                    <div *ngIf="productForm.get('name')?.errors?.['required']" class="error" style="font-size:12px;color:red;margin-bottom:6px;">
+                    <div *ngIf="productForm.get('name')?.errors?.['required'] && (productForm.get('name')?.touched || productForm.get('name')?.dirty)" class="error" style="font-size:12px;color:red;margin-bottom:6px;">
                       Name is required
                     </div>
-                    <div *ngIf="productForm.get('name')?.errors?.['minlength']" class="error" style="font-size:12px;color:red;margin-bottom:6px;">
+                    <div *ngIf="productForm.get('name')?.errors?.['minlength'] && (productForm.get('name')?.touched || productForm.get('name')?.dirty)" class="error" style="font-size:12px;color:red;margin-bottom:6px;">
                       Name must be at least 3 characters long
                     </div>
                   </div>
   
                   <div class="form-group">
-                    <label for="shortDescription">Short Description</label>
-                    <textarea id="shortDescription" formControlName="shortDescription" required></textarea>
-                    <div *ngIf="productForm.get('shortDescription')?.errors?.['required']" class="error" style="font-size:12px;color:red;margin-bottom:6px;">
-                      Short Description is required
+                    <label for="description">Description</label>
+                    <textarea id="description" formControlName="description" required></textarea>
+                    <div *ngIf="productForm.get('description')?.errors?.['required']&& (productForm.get('description')?.touched || productForm.get('description')?.dirty)" class="error" style="font-size:12px;color:red;margin-bottom:6px;">
+                      Description is required
                     </div>
-                    <div *ngIf="productForm.get('shortDescription')?.errors?.['minlength']" class="error" style="font-size:12px;color:red;margin-bottom:6px;">
-                      Short Description must be at least 10 characters long
+                    <div *ngIf="productForm.get('description')?.errors?.['minlength'] && (productForm.get('description')?.touched || productForm.get('description')?.dirty)" class="error" style="font-size:12px;color:red;margin-bottom:6px;">
+                      Description must be at least 10 characters long
                     </div>
                   </div>
   
                   <div class="form-group">
                     <label for="price">Price</label>
                     <input type="number" id="price" formControlName="price" required />
-                    <div *ngIf="productForm.get('price')?.errors?.['required']" class="error" style="font-size:12px;color:red;margin-bottom:6px;">
+                    <div *ngIf="productForm.get('price')?.errors?.['required'] && (productForm.get('price')?.touched || productForm.get('price')?.dirty)" class="error" style="font-size:12px;color:red;margin-bottom:6px;">
                       Price is required
                     </div>
-                    <div *ngIf="productForm.get('price')?.errors?.['min']" class="error" style="font-size:12px;color:red;margin-bottom:6px;">
+                    <div *ngIf="productForm.get('price')?.errors?.['min'] && (productForm.get('price')?.touched || productForm.get('price')?.dirty)" class="error" style="font-size:12px;color:red;margin-bottom:6px;">
                       Price must be greater than 0
                     </div>
                   </div>
   
                   <div class="form-group">
                     <label for="image">Image URL</label>    <!-- turn to upload image -->
-                    <input type="url" id="image" formControlName="image" required />
-                    <div *ngIf="productForm.get('image')?.errors?.['required']" class="error" style="font-size:12px;color:red;margin-bottom:6px;">
+                    <input type="text" id="image" formControlName="image" required />
+                    <div *ngIf="productForm.get('image')?.errors?.['required'] && (productForm.get('image')?.touched || productForm.get('image')?.dirty)" class="error" style="font-size:12px;color:red;margin-bottom:6px;">
                       Image URL is required
                     </div>
-                    <div *ngIf="productForm.get('image')?.errors?.['pattern']" class="error" style="font-size:12px;color:red;margin-bottom:6px;">
+                    <div *ngIf="productForm.get('image')?.errors?.['pattern'] && (productForm.get('image')?.touched || productForm.get('image')?.dirty)" class="error" style="font-size:12px;color:red;margin-bottom:6px;">
                       Image URL must be a valid URL
                     </div>
                   </div>
   
-                  <div class="form-group">
+                  <!-- <div class="form-group">
                     <label for="stock">Stock</label>
                     <input type="number" id="stock" formControlName="stock" required />
                     <div *ngIf="productForm.get('stock')?.errors?.['required']" class="error" style="font-size:12px;color:red;margin-bottom:6px;">
@@ -115,13 +115,13 @@
                     <div *ngIf="productForm.get('stock')?.errors?.['min']" class="error" style="font-size:12px;color:red;margin-bottom:6px;">
                       Stock must be at least 0
                     </div>
-                  </div>
+                  </div> -->
   
                   <div class="form-group">
                     <label for="category">Category</label>
-                    <input type="text" id="category" formControlName="category" required />
-                    <div *ngIf="productForm.get('category')?.errors?.['required']" class="error" style="font-size:12px;color:red;margin-bottom:6px;">
-                      Category is required
+                    <input type="number" id="categoryId" formControlName="categoryId" required />
+                    <div *ngIf="productForm.get('categoryId')?.errors?.['required'] && (productForm.get('categoryId')?.touched || productForm.get('categoryId')?.dirty)" class="error" style="font-size:12px;color:red;margin-bottom:6px;">
+                      categoryId is required
                     </div>
                   </div>
   
@@ -140,7 +140,7 @@
                   <th>Product Name</th>
                   <th>Image</th>
                   <th>Price</th>
-                  <th>Product Description</th>
+                  <th>Description</th>
                   <th>Category</th>
                   <th>Edit</th>
                   <th>Remove</th>
@@ -152,7 +152,7 @@
                   <td><img [src]="product.image" alt="{{ product.name }}"></td>
                   <td>{{ product.price }}</td>
                   <td>{{ product.description }}</td>
-                  <td>{{ product.category }}</td>
+                  <td>{{ product.categoryId }}</td>
                   <td>
                     <button class="edit-btn" (click)="editProduct(product)"> 
                       <i class="fa-regular fa-pen-to-square" style="color: #10da3c;font-size:15px;"></i>
@@ -180,19 +180,14 @@
             </div> 
   
             <div class="summary-cards">   
-              <div class="card">
-                <h3>Total Products</h3>
-                <p>5,423</p>
-                <p><span class="percentage-up">16% this month</span></p>
+              <div class="card1">
+                
               </div>
               <div class="card">
-                <h3>Products</h3>
-                <p>1,893</p>
-                <p><span class="percentage-down">1% this week</span></p>
+                
               </div>
-              <div class="card">
-                <h3>Available now</h3>
-                <p>189</p>
+              <div class="card1">
+                
               </div>
             </div>
           </div>

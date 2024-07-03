@@ -1,12 +1,12 @@
 ### Create a new product (requires Admin token)
 POST http://localhost:3000/products
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OSwiZW1haWwiOiJhZG1pbnVzZXIxQGV4YW1wbGUuY29tIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzE5NzYxNzkxLCJleHAiOjE3MTk3NjUzOTF9.18a09lDjL6DLTMA-wPY-RwVvYbqeKNBZluTlTGw9S_o
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJhZG1pbnVzZXIxQGV4YW1wbGUuY29tIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzE5OTk0Nzg2LCJleHAiOjE3MTk5OTgzODZ9.NTp_wnVDCtFm4v_SHpVqYMcSpobIvSLvdtNnYyQyiqk
 
 {
-    "name": "Product 3 Test",
-    "description": "This is a third test product",
-    "price": 100.99,
+    "name": "Product 7 Test",
+    "description": "This is a test product",
+    "price": 99.99,
     "image": "http://example.com/image.jpg",
     "stockQuantity": 30,
     "categoryId": 1
@@ -19,12 +19,12 @@ GET http://localhost:3000/products
 GET http://localhost:3000/products/5
 
 ### Update a product (requires Admin token)
-PUT http://localhost:3000/products/5
+PUT http://localhost:3000/products/9
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OSwiZW1haWwiOiJhZG1pbnVzZXIxQGV4YW1wbGUuY29tIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzE5NzQ4MTExLCJleHAiOjE3MTk3NTE3MTF9.8nMzktaB6G79yZjWm0hibcnwMEQOBGs1ldwZmB-DQGk
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJhZG1pbnVzZXIxQGV4YW1wbGUuY29tIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzE5OTk1NDAxLCJleHAiOjE3MTk5OTkwMDF9._o09wiTDH6COfBekP8-G8D3xtNQN4B4174HUyXsFlAc
 
 {
-    "id": 5,
+    "id": 9,
     "name": "Updated Product",
     "description": "This is an updated product",
     "price": 70.99,

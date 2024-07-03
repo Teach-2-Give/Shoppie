@@ -39,6 +39,9 @@ import { MatInputModule } from '@angular/material/input';
   ],
 })
 export class AdminDashboardComponent implements OnInit {
+onFilter($event: Event) {
+throw new Error('Method not implemented.');
+}
   products: Product[] = [];
   filteredProducts: Product[] = [];
   formVisible: boolean = false;
@@ -58,8 +61,8 @@ export class AdminDashboardComponent implements OnInit {
           Validators.pattern(/https?:\/\/.+\.(jpg|jpeg|png|webp|avif|gif|svg)/),
         ],
       ],
-      stock: ['', [Validators.required, Validators.min(0)]],
-      category: ['', [Validators.required]],
+      // stock: ['', [Validators.required, Validators.min(0)]],
+      categoryId: [null, [Validators.required]],
     });
   }
 
@@ -68,51 +71,16 @@ export class AdminDashboardComponent implements OnInit {
   }
 
   loadProducts(): void {
-    this.productService.getProducts().subscribe((products: Product[]) => {
-      this.products = products;
-      this.filteredProducts = products;
-    });
-  }
-
-  toggleForm(): void {
-    this.formVisible = !this.formVisible;
-  }
-
-  addOrUpdateProduct(): void {
-    if (this.productForm.valid) {
-      const product: Product = this.productForm.value;
-      if (this.isEditing) {
-        this.productService.editProduct(product).subscribe(() => {
-          this.loadProducts();
-          this.resetForm();
-        });
-      } else {
-        this.productService.addProduct(product).subscribe(() => {
-          this.loadProducts();
-          this.resetForm();
-        });
+    this.productService.getProducts().subscribe(
+      (products) => {
+        this.products = products;
+        this.filteredProducts = products;
+        this.resetForm();
+      },
+      (error) => {
+        console.error('Error loading products:', error);
       }
-    }
-  }
-
-  editProduct(product: Product): void {
-    this.productForm.setValue({
-      id: product.id,
-      name: product.name,
-      shortDescription: product.description,
-      price: product.price,
-      image: product.image,
-      stock: product.stock,
-      category: product.categoryId,
-    });
-    this.isEditing = true;
-    this.formVisible = true;
-  }
-
-  deleteProduct(id: number): void {
-    this.productService.deleteProduct(id).subscribe(() => {
-      this.loadProducts();
-    });
+    );
   }
 
   resetForm(): void {
@@ -121,6 +89,73 @@ export class AdminDashboardComponent implements OnInit {
     this.formVisible = false;
   }
 
+  toggleForm(): void {
+    this.formVisible = !this.formVisible;
+    this.productForm.reset();
+  }
+
+  addOrUpdateProduct(): void {
+    if (this.productForm.valid) {
+      const product: Product = this.productForm.value;
+      if (this.isEditing) {
+        this.productService.editProduct(product).subscribe(
+          () => {
+            this.loadProducts();
+            this.toggleForm();
+            
+          },
+          (error) => {
+            console.error('Error updating product:', error);
+          }
+        );
+      } else {
+        this.productService.addProduct(product).subscribe(
+          () => {
+            this.loadProducts(); 
+            this.toggleForm();
+          },
+          (error) => {
+            console.error('Error adding product:', error);
+          }
+        );
+      }
+      this.resetForm();
+    }
+  }
+
+  editProduct(product: Product): void {
+    this.productForm.patchValue({
+      id: product.id,
+      name: product.name,
+      description: product.description,
+      price: product.price,
+      image: product.image,
+      // stock: product.stockQuantity,
+      category: product.categoryId,
+    });
+    this.isEditing = true;
+    this.formVisible = true;
+    
+
+  }
+
+  deleteProduct(id: number): void {
+    this.productService.deleteProduct(id).subscribe(
+      () => {
+        this.loadProducts();
+      },
+      (error) => {
+        console.error('Error deleting product:', error);
+      }
+    );
+  }
+
+  // resetForm(): void {
+  //   this.productForm.reset();
+  //   this.isEditing = false;
+  //   this.formVisible = false;
+  // }
+
   onSearch(event: Event): void {
     const searchTerm = (event.target as HTMLInputElement).value.toLowerCase();
     this.filteredProducts = this.products.filter((product) =>
@@ -128,14 +163,14 @@ export class AdminDashboardComponent implements OnInit {
     );
   }
 
-  onFilter(event: Event): void {
-    const filterValue = (event.target as HTMLSelectElement).value;
-    if (filterValue) {
-      this.filteredProducts = this.products.filter(
-        (product) => product.category === filterValue
-      );
-    } else {
-      this.filteredProducts = this.products;
-    }
-  }
+  // onFilter(event: Event): void {
+  //   const filterValue = (event.target as HTMLSelectElement).value;
+  //   if (filterValue) {
+  //     this.filteredProducts = this.products.filter(
+  //       (product) => product.categoryId === filterValue
+  //     );
+  //   } else {
+  //     this.filteredProducts = this.products;
+  //   }
+  // }
 }
