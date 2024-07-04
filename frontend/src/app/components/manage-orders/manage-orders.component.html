@@ -42,7 +42,7 @@
             </div>
             
             <div class="filters">
-              <select>   <!--  (change)="onFilter($event)" -->
+              <select>    
                 <option value="">All Types</option>
                 <option value="Electronics">Electronics</option>
                 <option value="jewelry">jewelry</option>
@@ -56,21 +56,19 @@
             <table class="user-table">
               <thead>
                 <tr>
-                  <th>Customer</th>
-                  <th>Email</th>
-                  <th>Orders</th>
-                  <th>Created At</th>
-                  <th>Actions</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr *ngFor="let user of users">
-                  <td>{{ user.name }}</td>
-                  <td>{{ user.email }}</td>
-                  <td>{{ user.orders?.length || 0 }}</td>
-                  <td>{{ user.createdAt | date }}</td>
-                  <td>
-                    <button class="del-btn" (click)="deleteUser(user.id)">   <!--  change -->
+                    <th>Items</th>
+                    <th>Total</th>
+                    <th>Created At</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let order of orders">
+                    <td>{{ order.items }}</td>
+                    <td>{{ order.total}}</td>
+                    <td>{{ order.createdAt | date }}</td>
+                    <td>
+                    <button class="del-btn" (click)="deleteOrder(order.id)">   <!--  change -->
                       <i class="fa-regular fa-trash-can" style="color: #f01111;font-size:15px;"></i>
                     </button>
                   </td>
