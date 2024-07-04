@@ -7,9 +7,13 @@ import { AdminDashboardComponent } from './components/admin-dashboard/admin-dash
 @Component({
   selector: 'app-root',
   standalone: true,
+<<<<<<< HEAD
   imports: [RouterOutlet,NavbarComponent, UserDashboardComponent, AdminDashboardComponent],
+=======
+  imports: [RouterOutlet, NavbarComponent],
+>>>>>>> ededce58ea6eba6ed43bebbc68bc23a5590b3815
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrl: './app.component.css',
 })
 export class AppComponent {
   title = 'frontend';

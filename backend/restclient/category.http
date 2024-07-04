@@ -1,6 +1,10 @@
 ### Create a new category (requires Admin token)
 POST http://localhost:3000/categories
+<<<<<<< HEAD
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OSwiZW1haWwiOiJhZG1pbnVzZXIxQGV4YW1wbGUuY29tIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzE5ODY5MDk2LCJleHAiOjE3MTk4NzI2OTZ9.PaxgNjGf8v7VSMzLEKBkdvTw_F0IwpPLTbXKNW_X8Mw
+=======
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJhZG1pbnVzZXIxQGV4YW1wbGUuY29tIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzE5OTI5MDczLCJleHAiOjE3MTk5MzI2NzN9.24Wx8o5xQJl16KeqYYFiygvrsGKvLbRbNCGtOcJ3Onk
+>>>>>>> ededce58ea6eba6ed43bebbc68bc23a5590b3815
 Content-Type: application/json
 
 {

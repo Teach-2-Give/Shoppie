@@ -10,20 +10,37 @@
   },
   "private": true,
   "dependencies": {
+<<<<<<< HEAD
     "@angular/animations": "^18.0.0",
     "@angular/cdk": "^18.0.5",
     "@angular/common": "^18.0.0",
     "@angular/compiler": "^18.0.0",
     "@angular/core": "^18.0.0",
     "@angular/forms": "^18.0.0",
+=======
+    "@angular/animations": "^18.0.5",
+    "@angular/cdk": "^18.0.5",
+    "@angular/common": "^18.0.5",
+    "@angular/compiler": "^18.0.0",
+    "@angular/core": "^18.0.0",
+    "@angular/forms": "^18.0.5",
+>>>>>>> ededce58ea6eba6ed43bebbc68bc23a5590b3815
     "@angular/material": "^18.0.5",
     "@angular/platform-browser": "^18.0.0",
     "@angular/platform-browser-dynamic": "^18.0.0",
     "@angular/router": "^18.0.0",
     "@fortawesome/angular-fontawesome": "^0.15.0",
     "@fortawesome/fontawesome-free": "^6.5.2",
+<<<<<<< HEAD
     "@fortawesome/fontawesome-svg-core": "^6.5.2",
     "@fortawesome/free-solid-svg-icons": "^6.5.2",
+=======
+    "chart.js": "^4.4.3",
+    "chartjs": "^0.3.24",
+    "cloudinary": "^2.2.0",
+    "ng2-charts": "^6.0.1",
+    "ng2charts": "^2.1.0",
+>>>>>>> ededce58ea6eba6ed43bebbc68bc23a5590b3815
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.3"
