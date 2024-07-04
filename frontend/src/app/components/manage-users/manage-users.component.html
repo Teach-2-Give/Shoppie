@@ -1,0 +1,115 @@
+
+<mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #drawer class="sidenav" mode="side" opened>
+      <mat-toolbar>Shopie Admin</mat-toolbar>
+  
+      <mat-nav-list>   <!-- major change -->
+        <a mat-list-item routerLink="/admin-dashboard" class="nav-item">
+          <mat-icon class="nav-icon"style="font-size:15px;color:grey;">dashboard</mat-icon>
+          <span class="nav-text" style="font-size:15px;color:grey;">Product-management</span>        
+        </a>
+        <a mat-list-item routerLink="/manage-orders" class="nav-item">
+          <mat-icon class="nav-icon"style="font-size:15px;color:grey;">exit_to_app</mat-icon>
+          <span class="nav-text" style="font-size:15px;color:grey;">Orders</span>        
+        </a>
+        <a mat-list-item routerLink="/manage-reviews" class="nav-item">
+          <mat-icon class="nav-icon"style="font-size:15px;color:grey;">exit_to_app</mat-icon>
+          <span class="nav-text" style="font-size:15px;color:grey;">Reviews</span>        
+        </a>
+        <a mat-list-item routerLink="/" class="nav-item">
+          <mat-icon class="nav-icon"style="font-size:15px;color:grey;">exit_to_app</mat-icon>
+          <span class="nav-text" style="font-size:15px;color:grey;">log-out</span>        
+        </a>
+      </mat-nav-list>
+      
+    </mat-sidenav>
+    <mat-sidenav-content>
+      
+      
+  
+      <div class="sidenav-container">
+        <div class="sidenav-content">
+          <div class="toolbar">
+            <!-- major change -->
+        <button class="fabar" (click)="drawer.toggle()" style="background:#fff; border:none;margin:20px;"> <!--  change -->
+          <i class="fa-solid fa-bars" style="font-size:25px;color:#898989;" ></i>
+        </button>
+        <span></span>
+
+  
+             <div class="search">  <!--  change -->
+              <input type="text" placeholder="Search product" (input)="onSearch($event)">
+            </div>
+            
+            <div class="filters">
+              <select (change)="onFilter($event)">    
+                <option value="">All Types</option>
+                <option value="Electronics">Electronics</option>
+                <option value="jewelry">jewelry</option>
+                <option value="furniture">furniture</option>
+                <option value="Clothing">Clothing</option>
+              </select>
+            </div>
+          </div>
+  
+          <div class="main-content">   
+            <table class="user-table">
+              <thead>
+                <tr>
+                  <th>Customer</th>
+                  <th>Email</th>
+                  <th>Orders</th>
+                  <th>Created At</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let user of users">
+                  <td>{{ user.name }}</td>
+                  <td>{{ user.email }}</td>
+                  <td>{{ user.orders?.length || 0 }}</td>
+                  <td>{{ user.createdAt | date }}</td>
+                  <td>
+                    <button class="del-btn" (click)="deleteUser(user.id)">   <!--  change -->
+                      <i class="fa-regular fa-trash-can" style="color: #f01111;font-size:15px;"></i>
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            
+            <div class="pagination"style="font-size: 13px;color:#6d6d6d;">
+              <span>Showing data 1 to 6 of 25K entries</span>
+              <ul class="pagination-list">
+                <li><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li><a href="#">...</a></li>
+                <li><a href="#">40</a></li>
+              </ul>
+            </div> 
+  
+             <div class="summary-cards">   <!-- major change -->
+              <div class="card">
+                <h3>Total Products</h3>
+                <p>5,423</p>
+                <p><span class="percentage-up">16% this month</span></p>
+              </div>
+              <div class="card">
+                <h3>Products</h3>
+                <p>1,893</p>
+                <p><span class="percentage-down">1% this week</span></p>
+              </div>
+              <div class="card">
+                <h3>Available now</h3>
+                <p>189</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+  

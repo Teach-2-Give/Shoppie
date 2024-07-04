@@ -1,0 +1,203 @@
+<mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #drawer class="sidenav" mode="side" opened>
+      <mat-toolbar>Shopie Admin</mat-toolbar>
+  
+      <mat-nav-list>   
+        <a mat-list-item routerLink="/admin-dashboard" class="nav-item">
+          <mat-icon class="nav-icon"style="font-size:15px;color:grey;">dashboard</mat-icon>
+          <span class="nav-text" style="font-size:15px;color:grey;">Product-management</span>        
+        </a>
+        <a mat-list-item routerLink="/manage-orders" class="nav-item">
+          <mat-icon class="nav-icon"style="font-size:15px;color:grey;">exit_to_app</mat-icon>
+          <span class="nav-text" style="font-size:15px;color:grey;">Orders</span>        
+        </a>
+        <a mat-list-item routerLink="/manage-reviews" class="nav-item">
+          <mat-icon class="nav-icon"style="font-size:15px;color:grey;">exit_to_app</mat-icon>
+          <span class="nav-text" style="font-size:15px;color:grey;">Reviews</span>        
+        </a>
+        <a mat-list-item routerLink="/" class="nav-item">
+          <mat-icon class="nav-icon"style="font-size:15px;color:grey;">exit_to_app</mat-icon>
+          <span class="nav-text" style="font-size:15px;color:grey;">log-out</span>        
+        </a>
+      </mat-nav-list>
+
+    </mat-sidenav>
+    <mat-sidenav-content>
+      
+      <div class="sidenav-container">
+        <div class="sidenav-content">
+          <div class="toolbar">
+                   
+      <button class="fabar" (click)="drawer.toggle()" style="background:#fff; border:none;margin:20px;">
+        <i class="fa-solid fa-bars" style="font-size:25px;color:#898989;" ></i>
+      </button>
+      <span></span>
+
+          <div class="add"> 
+          <button class="addbtn" (click)="toggleForm()">
+            <i class="fa-duotone fa-plus" style="font-size:25px;color:#898989;"></i>
+          </button><p>Add product</p>
+          
+        </div>
+
+           <div class="search"> 
+            <input type="text" placeholder="Search Product" (input)="onSearch($event)">
+          </div>
+          
+            
+            <div class="filters">
+              <select (change)="onFilter($event)">    
+                <option value="">All Types</option>
+                <option value="Electronics">Electronics</option>
+                <option value="jewelry">jewelry</option>
+                <option value="furniture">furniture</option>
+                <option value="Clothing">Clothing</option>
+              </select>
+            </div>
+          </div>
+  
+          <div class="main-content">
+            <div class="modal" *ngIf="formVisible">
+              <div class="modal-content">
+                <span class="close" (click)="toggleForm()">&times;</span>
+                <div class="form">
+                <form [formGroup]="productForm" (ngSubmit)="addOrUpdateProduct()">
+                  <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" formControlName="name" required />
+                    <div *ngIf="productForm.get('name')?.errors?.['required']" class="error" style="font-size:12px;color:red;margin-bottom:6px;">
+                      Name is required
+                    </div>
+                    <div *ngIf="productForm.get('name')?.errors?.['minlength']" class="error" style="font-size:12px;color:red;margin-bottom:6px;">
+                      Name must be at least 3 characters long
+                    </div>
+                  </div>
+  
+                  <div class="form-group">
+                    <label for="shortDescription">Short Description</label>
+                    <textarea id="shortDescription" formControlName="shortDescription" required></textarea>
+                    <div *ngIf="productForm.get('shortDescription')?.errors?.['required']" class="error" style="font-size:12px;color:red;margin-bottom:6px;">
+                      Short Description is required
+                    </div>
+                    <div *ngIf="productForm.get('shortDescription')?.errors?.['minlength']" class="error" style="font-size:12px;color:red;margin-bottom:6px;">
+                      Short Description must be at least 10 characters long
+                    </div>
+                  </div>
+  
+                  <div class="form-group">
+                    <label for="price">Price</label>
+                    <input type="number" id="price" formControlName="price" required />
+                    <div *ngIf="productForm.get('price')?.errors?.['required']" class="error" style="font-size:12px;color:red;margin-bottom:6px;">
+                      Price is required
+                    </div>
+                    <div *ngIf="productForm.get('price')?.errors?.['min']" class="error" style="font-size:12px;color:red;margin-bottom:6px;">
+                      Price must be greater than 0
+                    </div>
+                  </div>
+  
+                  <div class="form-group">
+                    <label for="image">Image URL</label>    <!-- turn to upload image -->
+                    <input type="url" id="image" formControlName="image" required />
+                    <div *ngIf="productForm.get('image')?.errors?.['required']" class="error" style="font-size:12px;color:red;margin-bottom:6px;">
+                      Image URL is required
+                    </div>
+                    <div *ngIf="productForm.get('image')?.errors?.['pattern']" class="error" style="font-size:12px;color:red;margin-bottom:6px;">
+                      Image URL must be a valid URL
+                    </div>
+                  </div>
+  
+                  <div class="form-group">
+                    <label for="stock">Stock</label>
+                    <input type="number" id="stock" formControlName="stock" required />
+                    <div *ngIf="productForm.get('stock')?.errors?.['required']" class="error" style="font-size:12px;color:red;margin-bottom:6px;">
+                      Stock is required
+                    </div>
+                    <div *ngIf="productForm.get('stock')?.errors?.['min']" class="error" style="font-size:12px;color:red;margin-bottom:6px;">
+                      Stock must be at least 0
+                    </div>
+                  </div>
+  
+                  <div class="form-group">
+                    <label for="category">Category</label>
+                    <input type="text" id="category" formControlName="category" required />
+                    <div *ngIf="productForm.get('category')?.errors?.['required']" class="error" style="font-size:12px;color:red;margin-bottom:6px;">
+                      Category is required
+                    </div>
+                  </div>
+  
+                  <div class="form-actions">
+                    <button type="submit" class="submit-button">{{ isEditing ? 'Update' : 'Add' }} Product</button>
+                    <button type="button" class="cancel-button" (click)="resetForm()">Cancel</button>
+                  </div>
+                </form>
+              </div>
+              </div>
+            </div>
+  
+            <table class="product-table">
+              <thead>
+                <tr>
+                  <th>Product Name</th>
+                  <th>Image</th>
+                  <th>Price</th>
+                  <th>Product Description</th>
+                  <th>Category</th>
+                  <th>Edit</th>
+                  <th>Remove</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let product of products">
+                  <td>{{ product.name }}</td>
+                  <td><img [src]="product.image" alt="{{ product.name }}"></td>
+                  <td>{{ product.price }}</td>
+                  <td>{{ product.description }}</td>
+                  <td>{{ product.category }}</td>
+                  <td>
+                    <button class="edit-btn" (click)="editProduct(product)"> 
+                      <i class="fa-regular fa-pen-to-square" style="color: #10da3c;font-size:15px;"></i>
+                    </button>
+                  </td>
+                  <td>
+                    <button class="del-btn" (click)="deleteProduct(product.id)">  
+                      <i class="fa-regular fa-trash-can" style="color: #f01111;font-size:15px;"></i>
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="pagination">
+              <span>Showing data 1 to 8 of 256K entries</span>
+              <ul class="pagination-list">
+                <li><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li><a href="#">...</a></li>
+                <li><a href="#">40</a></li>
+              </ul>
+            </div> 
+  
+            <div class="summary-cards">   
+              <div class="card">
+                <h3>Total Products</h3>
+                <p>5,423</p>
+                <p><span class="percentage-up">16% this month</span></p>
+              </div>
+              <div class="card">
+                <h3>Products</h3>
+                <p>1,893</p>
+                <p><span class="percentage-down">1% this week</span></p>
+              </div>
+              <div class="card">
+                <h3>Available now</h3>
+                <p>189</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+  
