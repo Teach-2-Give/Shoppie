@@ -2,7 +2,6 @@ import { Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
-<<<<<<< HEAD
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 import { UserDashboardComponent } from './components/user-dashboard/user-dashboard.component';
@@ -55,19 +54,3 @@ export const routes: Routes = [
       },
     { path: '**', component: NotFoundComponent }
 ];
-=======
-import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
-import { ManageUsersComponent } from './components/manage-users/manage-users.component';
-import { ManageOrdersComponent } from './components/manage-orders/manage-orders.component';
-import { ChartsComponent } from './components/charts/charts.component';
-
-export const routes: Routes = [
-    {path:'',component:HomeComponent},
-    {path:'login',component:LoginComponent},
-    {path:'register',component:RegisterComponent},
-    {path:'admin',component:AdminDashboardComponent},
-    {path:'userlist',component:ManageUsersComponent},
-    {path:'orderlist',component:ManageOrdersComponent},
-    {path:'charts',component:ChartsComponent}
-];
->>>>>>> ededce58ea6eba6ed43bebbc68bc23a5590b3815

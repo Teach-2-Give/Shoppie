@@ -27,11 +27,7 @@
               }
             ],
             "styles": [
-<<<<<<< HEAD
               "@angular/material/prebuilt-themes/azure-blue.css",
-=======
-              "src/custom-theme.scss",
->>>>>>> ededce58ea6eba6ed43bebbc68bc23a5590b3815
               "src/styles.css"
             ],
             "scripts": []
