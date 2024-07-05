@@ -46,3 +46,10 @@
   .sidebar-bottom {
     margin-top: 10rem;
   }
+
+
+  @media screen and (max-width: 768px) {
+     .sidebar{
+      display: none;
+     }
+  }

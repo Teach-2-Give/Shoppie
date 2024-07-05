@@ -45,8 +45,8 @@ export class ProductsComponent implements OnInit {
 
   constructor(private fb: FormBuilder, private productService: AdminProductService) {
     this.productForm = this.fb.group({
-      name: ['', Validators.required],
-      description: ['', Validators.required],
+      name: ['', [Validators.required, Validators.minLength(3)]],
+      description: ['', [Validators.required, Validators.minLength(7)]],
       price: ['', [Validators.required, Validators.pattern(/^\d+(\.\d{1,2})?$/)]],
       stockQuantity: ['', [Validators.required, Validators.min(0)]],
       categoryId: ['', Validators.required],

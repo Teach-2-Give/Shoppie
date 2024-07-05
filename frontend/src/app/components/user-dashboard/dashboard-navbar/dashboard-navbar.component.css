@@ -81,6 +81,11 @@
 }
 
 
+@media screen and (max-width: 768px) {
+  .profile-container {
+    display: none;
+  }
+}
 
 
 

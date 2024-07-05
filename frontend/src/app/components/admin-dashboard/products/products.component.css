@@ -107,49 +107,74 @@
   }
   
   .product-form label {
-    display: block;
+    /* display: block;
     margin-bottom: 8px;
-    font-weight: bold;
+    font-weight: bold; */
+    display: block;
+    margin-bottom: 3px;
+    color: #464343; /* Light grey text */
+
   }
   
+  .product-form input{
+    margin-bottom: 18px;
+  }
+
   .product-form input,
   .product-form select,
   .product-form textarea {
-    width: 100%;
+    /* width: 100%;
     padding: 10px;
     margin-bottom: 20px;
     border: 1px solid #ddd;
     border-radius: 5px;
-    font-size: 14px;
+    font-size: 14px; */
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    border: none; /* Dark border */
+    background-color: #c6c3c3; /* Slightly lighter background */
+    color: #625858; /* Light grey text */
+    border-radius: 5px;
+    font-size: 13px;
+    transition: border-color 0.3s, box-shadow 0.3s;
   }
   
+  .product-form input:focus,
+  .product-form textarea:focus {
+    border-color: #e47171; /* Focus border color */
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.2); /* Focus shadow */
+    outline: none;
+  }
+
   .form-actions {
     display: flex;
     justify-content: space-between;
   }
   
   .product-form button {
-    background-color: #007bff;
+    background-color: #10a400;
     color: #fff;
     border: none;
     padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 13px;
     transition: background-color 0.3s;
+    margin-top: 11px;
   }
   
   .product-form button:hover {
-    background-color: #0056b3;
+    background-color: #c1ce00;
   }
   
-  .cancel-button {
-    background-color: #dc3545;
+  .product-form button.cancel-button {
+    background-color: #f5051d;
     color: #fff;
   }
   
-  .cancel-button:hover {
-    background-color: #c82333;
+  .product-form button.cancel-button:hover {
+    background-color: #de6672;
   }
   
   .close-icon {
@@ -218,3 +243,29 @@
     font-weight: bold;
   }
   
+
+  
+
+
+  @media screen and (max-width: 768px) {
+    .product-component{
+      margin: 0px;
+    }
+    .products-table {
+      width: 70%; 
+      margin: 1px auto; 
+      font-size: 11px; 
+    }
+  
+    .products-table th, .products-table td {
+      padding: 2px; 
+    }
+  
+    .products-table button {
+      padding: 5px 9px; 
+    }
+    
+    .products-table p {
+      font-size: 11px; 
+    }
+  }
