@@ -42,6 +42,7 @@
     border-collapse: collapse;
     margin-top: 20px;
     margin: 0 auto;
+    border-radius: 4px;
   }
   
   .products-table th, .products-table td {

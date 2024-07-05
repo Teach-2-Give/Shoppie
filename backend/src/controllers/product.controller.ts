@@ -17,7 +17,7 @@ import {
 const createProduct = async (req: Request, res: Response) => {
   const { name, description, price, image, stockQuantity, categoryId } = req.body;
   try {
-    const product = await addProduct(name, description, price, image, stockQuantity, categoryId);
+    const product = await addProduct(name, description, price, image, stockQuantity, parseInt(categoryId));
     res.status(201).json(product);
   } catch (error: any) {
     res.status(400).json({ error: error.message });
