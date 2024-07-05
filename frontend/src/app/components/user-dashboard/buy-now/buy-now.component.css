@@ -256,3 +256,33 @@
   .mat-paginator button.mat-button {
     color: #e74c3c;
   }
+
+
+  
+  @media screen and (max-width: 768px) {
+    .products {
+      justify-content: center; 
+    }
+  
+    .product-item {
+      width: 100%; 
+      height: auto; 
+    }
+  
+    .product-item img {
+      height: auto; 
+    }
+  
+    .categories-row {
+      flex-wrap: wrap; 
+      gap: 5px; 
+    }
+  
+    .category-item {
+      width: 60px; 
+      height: 60px; 
+    }
+  
+  }
+  
+  

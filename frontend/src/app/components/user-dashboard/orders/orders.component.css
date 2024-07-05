@@ -88,3 +88,24 @@
   background-color: #f44336;
   color: #fff;
 }
+
+
+@media screen and (max-width: 768px) {
+  .orders-table {
+    width: 70%; 
+    margin: 5px auto; 
+    font-size: 11px; 
+  }
+
+  .orders-table th, .orders-table td {
+    padding: 2px; 
+  }
+
+  .orders-table button {
+    padding: 5px 9px; 
+  }
+  
+  .orders-table p {
+    font-size: 11px; 
+  }
+}

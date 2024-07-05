@@ -76,3 +76,10 @@
   padding-bottom: 0px;
   margin-top: 20rem;
 }
+
+
+@media screen and (max-width: 768px) {
+  .sidebar {
+    display: none;
+  }
+}

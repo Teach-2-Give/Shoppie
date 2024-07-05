@@ -60,3 +60,36 @@ form button:hover {
 .notification-container {
   margin-top: 20px;
 }
+
+
+
+@media screen and (max-width: 768px) {
+  .profile-container {
+    flex-direction: column; 
+    align-items: center; 
+    padding: 10px; 
+    gap: 10px;
+  }
+
+  .form-section {
+    width: 100%;
+  }
+
+  .profile-form {
+    flex-direction: column; 
+    align-items: flex-start; 
+  }
+
+  .profile-image img {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+
+  form {
+    width: 100%; 
+  }
+
+  form button {
+    width: 100%;
+  }
+}

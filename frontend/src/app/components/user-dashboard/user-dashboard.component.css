@@ -11,3 +11,22 @@
 app-dashboard-navbar {
   margin-top: 20px;
 }
+
+
+@media screen and (max-width: 768px) {
+  .dashboard-container {
+    flex-direction: column; 
+  }
+
+  app-sidebar {
+    display: none; 
+  }
+
+  .main-content {
+    margin-top: 0; 
+  }
+
+  app-dashboard-navbar {
+    margin-top: 0; 
+  }
+}
